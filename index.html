@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One Minute Mood Check</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <section id="screen-intro" class="screen is-active" data-screen="0">
+      <section class="card carrdCard">
+        <div class="accentLine" aria-hidden="true"></div>
+
+        <h1 class="carrdTitle">One Minute<br/>Mood Check</h1>
+
+        <p class="carrdDesc">
+          A low-barrier, non-clinical emotional check-in for stressed university students that
+          takes under one minute and responds with ambient visuals, sound, and a lightweight
+          “emotion card” instead of diagnosis or heavy text
+        </p>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="center">
+          <button id="btnStart" class="btnStart" type="button">Start</button>
+        </div>
+
+
+
+      </section>
+    </section>
+
+   <!-- Mood -->
+<section id="screen-mood" class="screen" data-screen="1" aria-labelledby="moodTitle">
+  <section class="card flowCard">
+    <button class="backPill" type="button" data-back aria-label="Go back">
+      ← Back
+    </button>
+
+    <h2 id="moodTitle" class="flowTitle">“Mood Selection”</h2>
+    <p class="flowSub">How are you feeling right now?</p>
+
+	<div class="divider" aria-hidden="true"></div>
+
+	  
+    <div class="pillStack" role="radiogroup" aria-label="Mood choices">
+      <!-- Each label is a big pill button -->
+      <label class="pillBtn">
+        <input type="radio" name="mood" value="tired">
+        <span class="pillText">😴&nbsp; Tired</span>
+      </label>
+
+      <label class="pillBtn">
+        <input type="radio" name="mood" value="anxious">
+        <span class="pillText">😵‍💫&nbsp; Anxious</span>
+      </label>
+
+      <label class="pillBtn">
+        <input type="radio" name="mood" value="calm">
+        <span class="pillText">🙂&nbsp; Calm</span>
+      </label>
+
+      <label class="pillBtn">
+        <input type="radio" name="mood" value="excited">
+        <span class="pillText">🔥&nbsp; Excited</span>
+      </label>
+    </div>
+
+
+  </section>
+</section>
+
+<!-- Atmosphere  -->
+<section id="screen-atmosphere" class="screen" data-screen="2" aria-labelledby="atmTitle">
+  <section class="card flowCard">
+    <button class="backPill" type="button" data-back aria-label="Go back">
+      ← Back
+    </button>
+
+    <h2 id="atmTitle" class="flowTitle">“Atmosphere”</h2>
+    <p class="flowSub">Choose your desired atmosphere</p>
+
+    <div class="pillStack" role="radiogroup" aria-label="Atmosphere choices">
+      <label class="pillBtn">
+        <input type="radio" name="atm" value="quiet">
+        <span class="pillText">Quiet</span>
+      </label>
+
+      <label class="pillBtn">
+        <input type="radio" name="atm" value="focus">
+        <span class="pillText">Focused</span>
+      </label>
+
+      <label class="pillBtn">
+        <input type="radio" name="atm" value="relax">
+        <span class="pillText">Relaxed</span>
+      </label>
+    </div>
+
+  </section>
+</section>
+
+<!--  Music  -->
+<section id="screen-sound" class="screen" data-screen="3" aria-labelledby="musicTitle">
+  <section class="card flowCard">
+    <button class="backPill" type="button" data-back aria-label="Go back">
+      ← Back
+    </button>
+
+    <h2 id="musicTitle" class="musicTitle">Music</h2>
+
+    <div class="musicIcon" aria-hidden="true">
+      <!-- spotify thing -->
+      <span class="musicGlyph">♪</span>
+    </div>
+
+    <p class="flowSub">Please choose a music that can describe your mood right now</p>
+	<p class="flowSub">Tip: Hover to preview.</p>
+    <div class="pillStack" role="radiogroup" aria-label="Music choices">
+      <label class="pillBtn" data-preview="audio/rnb.mp3">
+        <input type="radio" name="sound" value="rnb">
+        <span class="pillText">R&amp;B</span>
+      </label>
+
+      <label class="pillBtn" data-preview="audio/classical.mp3">
+        <input type="radio" name="sound" value="classical">
+        <span class="pillText">Classical</span>
+      </label>
+
+      <label class="pillBtn" data-preview="audio/rock.mp3">
+        <input type="radio" name="sound" value="rock">
+        <span class="pillText">Rock</span>
+      </label>
+
+      <label class="pillBtn" data-preview="audio/white.mp3">
+        <input type="radio" name="sound" value="white">
+        <span class="pillText">White Noise</span>
+      </label>
+    </div>
+
+  </section>
+</section>
+
+    <!--  Result  -->
+    <section id="screen-result" class="screen" data-screen="4" aria-labelledby="resultTitle">
+      <section class="card">
+        <h2 id="resultTitle" class="screenTitle">Your emotion card</h2>
+        <p class="screenSub">A gentle snapshot of what you selected.</p>
+
+        <div class="resultGrid">
+          <div class="resultCard">
+            <h3>Selections</h3>
+            <ul class="pillList">
+              <li class="pill"><span class="pillLabel">Mood</span><span id="outMood" class="pillValue">Okay</span></li>
+              <li class="pill"><span class="pillLabel">Atmosphere</span><span id="outAtm" class="pillValue">Quiet</span></li>
+              <li class="pill"><span class="pillLabel">Sound</span><span id="outSound" class="pillValue">Ambient</span></li>
+            </ul>
+          </div>
+
+          <div class="resultCard">
+            <h3>Gentle prompt</h3>
+            <p id="outPrompt" class="resultText">
+              If you feel neutral, you can steer the vibe: choose one priority and start small.
+            </p>
+          </div>
+        </div>
+
+        <div class="navBtns">
+          <button class="btnSmall" type="button" data-back>Back</button>
+          <button id="btnRestart" class="btnSmall primary" type="button">Start Over</button>
+        </div>
+
+        <p class="fineprint">Non-clinical tool for reflection, not diagnosis.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
